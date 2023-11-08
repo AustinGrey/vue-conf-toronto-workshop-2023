@@ -1,0 +1,21 @@
+<template>
+  <div class="overflow-auto pb-8">
+    <ul class="pl-4 flex flex-col-reverse">
+      <li class="mb-5" v-for="message in messages" :key="message.id">
+        <div class="grid grid-cols-3 justify-between items-center">
+          <div class="col-span-2 font-sans" :class="{ 'text-blue-500': message.from === 'You' }">
+            {{ message.content }}
+          </div>
+          <div class="text-sm font-sans text-right text-gray-400 pr-4">
+            {{ message.time }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script setup lang="ts">
+import type { Message } from './types'
+defineProps<{ messages: Message[] }>()
+</script>
