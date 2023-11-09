@@ -2,7 +2,7 @@
   <div class="col-span-2">
     <div v-if="selectedUser" class="px-4 flex items-center mb-4">
       <div class="text-lg font-semibold mr-2">{{ selectedUser.name }}</div>
-      <OnlineIndicator :is-online="selectedUser.isOnline" />
+      <OnlineIndicator :user="selectedUser" />
     </div>
     <MessageList :messages="filteredMessages" />
   </div>
@@ -12,7 +12,7 @@
 import { computed } from 'vue'
 import MessageList from './MessageList.vue'
 import OnlineIndicator from './OnlineIndicator.vue'
-import { User } from './types'
+import { type User } from './types'
 import useMessages from './useMessages'
 
 const props = defineProps<{ selectedUser: User }>()

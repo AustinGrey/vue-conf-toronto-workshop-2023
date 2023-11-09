@@ -160,3 +160,8 @@ Pinia augments this pattern with
 - Reduces duplication of defining what you need, if you have TS
 
 Exception: Avoid with very generic component since it creates a coupling to object shape.
+
+needy children: if multiple components are asking you to pass in the same object, its a sign that you might need to combine those components into 1 that you pass in the object to.
+-> opposite of hidden components pattern
+
+hidden objects pattern: If multiple children need the object, but are using mutually exclusive subsets of the properties.... maybe you need to split your object.

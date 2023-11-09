@@ -10,7 +10,7 @@
         @click="$emit('select-user', user)"
       >
         <div class="flex items-center">
-          <OnlineIndicator :is-online="user.isOnline" />
+          <OnlineIndicator :user="user" />
           <div class="ml-2">{{ user.name }}</div>
         </div>
       </li>
