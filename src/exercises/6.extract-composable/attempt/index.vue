@@ -177,6 +177,7 @@ const {randomizedData: randomDroids} = useRandomized(droidData);
 
 
 
+
 const allParts = randomDroids.value.reduce((acc, droid) => {
   droid.partsNeeded.forEach((part) => {
     if (acc.findIndex((el) => el.name === part) === -1) {

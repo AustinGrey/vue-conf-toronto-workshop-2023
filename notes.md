@@ -89,3 +89,19 @@ The performance hit for having things marked reactive is negligible. It's more a
 
 OPINION from instruction: ref vs reactive ---> defferred until we talk about it in the last section
 
+# Ex. 6 extracting the logic
+
+Here we extracted literally ALL the business logic out to a composable.
+
+In this example ALL the logic in this component was pulled out.
+
+This means that someone maintaining the logic is free to look at just how the variables and logic work without needing to regard the UI.
+
+# humble components pattern
+
+"Dumb" components from the smart/dumb components system, but with the
+extra context of being in the same application of an View/controller/logic split
+
+
+So now the dumb component is expected to be  descendant of a controller somewhere,
+which is responsible for turning the data into the format necessary for the component to do it's job, not the humble components
