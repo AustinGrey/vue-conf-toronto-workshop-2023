@@ -1,3 +1,5 @@
+Ex. 1
+
 Hidden components pattern works BEST with hardcoded props.
 There are only a few cases where it would work wih dynamic props
 
@@ -31,3 +33,31 @@ distinct sets of behavior that can be pulled apart.
 
 So here the OnlineIndicator changes responsibilties from showing a user and their online status, to literally just
 indicating if something is online or not, and it's up to the parent to indicate what that something is.
+
+Discussion
+
+1. Ideal size? Discussion
+
+Smart vs Dumb. If your dumb components have had the components broken down reasonable enough, and the smart components have
+had their script broken down using composables enough, then thats the ideal size.
+
+Red flag - are you losing focus as you try to read the code? Probably needs to be extracted
+
+Atom, molecule, organism came up again. It might feel crazy to push components down to atom size, but you SAVE TIME WHEN WRITING UNIT TESTS
+
+When do you make a comment one size of a component? General consensus was "When you start to feel lost/dumb while reading, then you should extract or break apart"
+
+There is a tradeoff - lots of small components means LOTS OF COMPONENTS. One sign things are too small is that
+you find you keep needing to dig into the child components before you can
+understand the parent, then you might have broken things up too small.
+
+1. Ideal size? Instruction
+
+Too long === hard to understand at a glance
+Too long === you feel like there is no good name for the component
+
+---- side bar
+Simon mentioned this course/book as valuable
+http://cleancoder.com/products
+---- end side bar
+
