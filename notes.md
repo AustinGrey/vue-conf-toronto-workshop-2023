@@ -105,3 +105,51 @@ extra context of being in the same application of an View/controller/logic split
 
 So now the dumb component is expected to be  descendant of a controller somewhere,
 which is responsible for turning the data into the format necessary for the component to do it's job, not the humble components
+
+- I didn't finish this, but what I took away was that with the logic pulled out to a composable, its
+now extremely obvious that my dumb component has NO REASON to ask for props which aren't in the format it needs.
+Why would I ask for something I don't need when I can instead ask for what I actually want??
+
+# ex. 8 controller components pattern
+
+- We pull all the complexity into the smallest number of components. Which means that any possible death traps or foot guns are in the smallest number of places. Leavving the majority of the app safe to muc about in with hurting you.
+
+This was made very obvious by the clearly obvious separation of concerns that was done when the composables were
+written. I asked about the thought process here.
+
+First 1 large composable for everything was written
+Then it became obvious from the person working on the logic that they could split things out into 3 composables
+Then it became obvious to the person working on the UI/Controller that it could be split into 3 controllers as well!
+
+
+# props down events up
+
+prop drilling, event frothing
+
+3 laws of state
+1. Components cannot access state that lives lower in the tree
+2. state has to exist higher than all components that need the state
+3. Keeping states lower better encapsulates state - since less components have access to that state
+
+If you think of state in your App.vue, it's effectively a global variable (or close to one) since it could be accessed by any child
+
+LCA-> lowest common ancestor
+
+prop drilling and event frothing make the components between the ancestor and the descendant be essentially messengers
+- it's brittle
+- Make refactoring harder, causes debt
+
+Data store: sharable composable
+- Pinia implements this pattern, and pinia shouldn't always be the tool people reach for. In any cases it's worth it to just write your own composable.
+
+parts of the data store composable
+1. Global state singleton
+2. Export some/all of the state
+3. Methods/business logic to access/modify the state.
+
+IDEA: we could use this to drop pinia for those cases where we want it to implement a generic interface, since PInias types aren't powerful enough
+
+Pinia augments this pattern with
+1. SSR support
+2. Deep Vue DevTools support
+3. Unit testing tools
