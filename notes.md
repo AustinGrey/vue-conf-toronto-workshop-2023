@@ -165,3 +165,14 @@ needy children: if multiple components are asking you to pass in the same object
 -> opposite of hidden components pattern
 
 hidden objects pattern: If multiple children need the object, but are using mutually exclusive subsets of the properties.... maybe you need to split your object.
+
+
+# ref vs reactive
+https://michaelnthiessen.com/ref-vs-reactive
+
+ref is better, because in isolation. Reactive should only be used when pieces of state are related enough to be grouped together -> which a precursor to pulling that reactive object out into a composable.
+So refs in components, reactives in data stores - though you could do refs in data stores to be consistent
+
+One massive "state" reactive in components is not recommended
+
+edge cases: making builtins like set reactive, cases where shallow ref is necessary.
