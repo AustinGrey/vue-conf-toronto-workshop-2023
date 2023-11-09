@@ -168,8 +168,15 @@
 import { ref, reactive, computed, nextTick } from 'vue'
 import droidData from './droids.js'
 
-// Randomize droid order
-const randomDroids = ref(droidData.sort(() => Math.random() - 0.5))
+const useRandomized = (dataSource)=>{
+  return {
+    randomizedData: ref(dataSource.sort(()=>Math.random() - 0.5)),
+  }
+}
+const {randomizedData: randomDroids} = useRandomized(droidData);
+
+
+
 const allParts = randomDroids.value.reduce((acc, droid) => {
   droid.partsNeeded.forEach((part) => {
     if (acc.findIndex((el) => el.name === part) === -1) {
