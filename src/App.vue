@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import Exercise from './exercises/3.extract-conditional/Solution/index.vue'
+import Exercise from './exercises/1.hidden-components/Problem/index.vue'
 </script>
 
 <style>
