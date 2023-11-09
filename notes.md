@@ -176,3 +176,14 @@ So refs in components, reactives in data stores - though you could do refs in da
 One massive "state" reactive in components is not recommended
 
 edge cases: making builtins like set reactive, cases where shallow ref is necessary.
+
+
+
+# lab time
+
+Identify simplifications in your own project
+
+catch-ui-error.vue => preserve object pattern could be used to simplify this and the default-fallback
+-> since the default fallback and the catch-ui-error.vue would end up using the same object, my guess is that's needy children pattern, and it makes sense to combine this default with the catch-ui-error
+
+list-searchable could have the fuzzy search functionalty pulled out into a composable
