@@ -29,6 +29,7 @@ withDefaults(
     useButton: boolean
   }>(),
   {
+    selected: false,
     useButton: false
   }
 )
