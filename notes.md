@@ -1,4 +1,4 @@
-Ex. 1
+# Ex. 1
 
 Hidden components pattern works BEST with hardcoded props.
 There are only a few cases where it would work wih dynamic props
@@ -57,7 +57,35 @@ Too long === hard to understand at a glance
 Too long === you feel like there is no good name for the component
 
 ---- side bar
+
 Simon mentioned this course/book as valuable
 http://cleancoder.com/products
+
 ---- end side bar
+
+
+
+# business logic organization
+
+MVC became populare because of it's innovation -> describing a separation of concerns
+that allowed people to know where to put things, and where to look for them
+
+Model of layers for Vue would be
+UI/View <-> Controller <-> Logic
+
+Controller exists to enable the separation of UI and Logic. That's it.
+
+UI/View === Dumb/Humble
+Controller === Controller Components (Smart)
+Logic === Composables (this pattern does not apply to options api)
+
+So dumb components shouldn't need to call the commposables.
+Pinia stores are an example of a composable - but this layering isn't framework specific.
+
+To keep things working while you refactor, you can write inline (IIFE or just a function not yet pulled out to it's own file) composables as an intermediate step
+
+NOTE: You should almost always just make everything reactive by default, a common issue is beliving that something is reactive when it's not.
+The performance hit for having things marked reactive is negligible. It's more a memory thing, but rarely is that an issue.
+
+OPINION from instruction: ref vs reactive ---> defferred until we talk about it in the last section
 

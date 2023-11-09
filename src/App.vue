@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import Exercise from './exercises/1.hidden-components/attempt/index.vue'
+import Exercise from './exercises/6.extract-composable/attempt/index.vue'
 </script>
 
 <style>
