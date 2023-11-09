@@ -19,5 +19,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ messages: any[] }>()
+import {useMessages} from "./messages-store";
+
+const {messages} = useMessages();
 </script>

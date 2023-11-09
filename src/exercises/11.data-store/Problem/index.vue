@@ -8,7 +8,7 @@
         @select-user="selectUser"
       />
       <div class="col-span-2">
-        <DirectMessage :selected-user="selectedUser" :messages="messages" />
+        <DirectMessage :selected-user="selectedUser" />
         <MessageInput @send-message="handleMessage" />
       </div>
       <NotificationArea class="col-span-1" :notifications="notifications" />
@@ -30,9 +30,10 @@ import MessageInput from './MessageInput.vue';
 import NotificationArea from './NotificationArea.vue';
 import { User } from './types';
 import useFakeData from './useFakeData';
+import {useMessages} from "./messages-store";
 
 // Mock a live API using fake data
-const { onlineUsers, notifications, messages, initialize } = useFakeData();
+const { onlineUsers, notifications, initialize } = useFakeData();
 
 const selectedUser = ref<User>(onlineUsers.value[0]);
 const selectUser = (user: User) => {
@@ -40,13 +41,7 @@ const selectUser = (user: User) => {
 };
 
 const handleMessage = (message) => {
-  messages.value.unshift({
-    id: messages.value.length + 1,
-    from: 'You',
-    to: selectedUser.value.name,
-    content: message,
-    time: new Date().toLocaleTimeString(),
-  });
+  useMessages().addMessage(message, selectedUser.value.name)
 };
 </script>
 

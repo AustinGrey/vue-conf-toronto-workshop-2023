@@ -23,7 +23,7 @@ const newMessage = ref('')
 const sendMessage = () => {
   if (newMessage.value.trim()) {
     emit('send-message', newMessage.value)
-    newMessage.value = ''
+    newMessage.value = '';
   }
 }
 </script>

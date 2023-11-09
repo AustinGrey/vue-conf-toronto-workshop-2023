@@ -13,10 +13,12 @@ import { computed } from 'vue'
 import MessageList from './MessageList.vue'
 import OnlineIndicator from './OnlineIndicator.vue'
 import { User } from './types'
+import {useMessages} from "./messages-store";
 
-const props = defineProps<{ selectedUser: User; messages: any[] }>()
+const props = defineProps<{ selectedUser: User; }>()
+const {messages} = useMessages();
 const filteredMessages = computed(() =>
-  props.messages.filter((message) => {
+  messages.value.filter((message) => {
     // From the selected user
     if (message.from === props.selectedUser.name) {
       return true
