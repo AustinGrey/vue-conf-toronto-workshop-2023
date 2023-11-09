@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import Exercise from './exercises/11.data-store/Problem/index.vue'
+import Exercise from './exercises/12.preserve-object/Problem/index.vue'
 </script>
 
 <style>

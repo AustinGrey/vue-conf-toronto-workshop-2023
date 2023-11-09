@@ -153,3 +153,10 @@ Pinia augments this pattern with
 1. SSR support
 2. Deep Vue DevTools support
 3. Unit testing tools
+
+
+# Preserve object pattern
+- A future-proofing pattern more than a simplifying pattern
+- Reduces duplication of defining what you need, if you have TS
+
+Exception: Avoid with very generic component since it creates a coupling to object shape.
